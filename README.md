@@ -105,3 +105,11 @@ mvn spring-boot:run
 - Chart/graph visualizations (e.g., PieChart, BarGraph)
 - Monthly or custom date range filters
 - Mobile responsiveness
+
+
+# Swagger UI
+![swagger.png](swagger.png)
+
+
+# Expense Tracker UI
+![ui.png](ui.png)
