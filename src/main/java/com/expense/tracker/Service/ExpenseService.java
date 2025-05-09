@@ -22,6 +22,23 @@ public class ExpenseService {
         return ExpenseMapper.toDto(expenseSaved);
     }
 
+    public ExpenseResponseDTO updateExpense(Long id, ExpenseRequestDTO expenseRequestDTO) {
+        ExpenseEntity expenseEntity = expenseRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Expense not found with ID: " + id));
+        expenseEntity.setAmount(expenseRequestDTO.getAmount());
+        expenseEntity.setCategory(expenseRequestDTO.getCategory());
+        expenseEntity.setDate(expenseRequestDTO.getDate());
+        expenseEntity.setDescription(expenseRequestDTO.getDescription());
+        ExpenseEntity expenseSaved = expenseRepository.save(expenseEntity);
+        return ExpenseMapper.toDto(expenseSaved);
+    }
+
+    public ExpenseResponseDTO getExpenseById(Long id) {
+        ExpenseEntity expenseEntity = expenseRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Expense not found with ID: " + id));
+        return ExpenseMapper.toDto(expenseEntity);
+    }
+
     public List<ExpenseResponseDTO> getAllExpenses() {
         List<ExpenseEntity> expenseReceived = expenseRepository.findAll();
         return ExpenseMapper.toDto(expenseReceived);
@@ -47,4 +64,5 @@ public class ExpenseService {
     public void deleteExpense(Long id) {
         expenseRepository.deleteById(id);
     }
+
 }
