@@ -20,30 +20,48 @@ public class ExpenseController {
 
     @Operation(summary = "Create a new expense")
     @PostMapping
-    public ExpenseResponseDTO create(@RequestBody ExpenseRequestDTO expense) {
-        return service.saveExpense(expense);
+    public ResponseEntity<ExpenseResponseDTO> create(@RequestBody ExpenseRequestDTO expense) {
+        ExpenseResponseDTO savedExpense = service.saveExpense(expense);
+        return ResponseEntity.ok(savedExpense);
     }
 
-    @Operation(summary = "Get all expenses")
-    @GetMapping
+    @PutMapping("/{id}")
+    @Operation(summary = "Update an existing expense by ID")
+    public ResponseEntity<ExpenseResponseDTO> updateExpense(
+            @PathVariable("id") Long id,
+            @RequestBody ExpenseRequestDTO expenseRequestDTO) {
+
+        ExpenseResponseDTO updatedExpense = service.updateExpense(id, expenseRequestDTO);
+        return ResponseEntity.ok(updatedExpense);
+    }
+
+    @GetMapping("/{id}")
+    @Operation(summary = "Get an expense by ID")
+    public ResponseEntity<ExpenseResponseDTO> getById(@PathVariable("id") Long id){
+        ExpenseResponseDTO receivedExpense = service.getExpenseById(id);
+        return ResponseEntity.ok(receivedExpense);
+    }
+
+    @Operation(summary = "List all expenses")
+    @GetMapping("/list")
     public List<ExpenseResponseDTO> getAll() {
         return service.getAllExpenses();
     }
 
-    @Operation(summary = "Get all expenses by category")
-    @GetMapping("/{category}")
+    @Operation(summary = "List expenses by category")
+    @GetMapping("/category/{category}")
     public List<ExpenseResponseDTO> getByCategory(@PathVariable("category") String category) {
         return service.getExpensesByCategory(category);
     }
 
-    @Operation(summary = "Get total expense across all categories")
-    @GetMapping("/total")
+    @Operation(summary = "Get total of all expenses")
+    @GetMapping("/total/all")
     public BigDecimal getTotalExpense() {
         return service.getTotalExpense();
     }
 
     @Operation(summary = "Get total expense for a specific category")
-    @GetMapping(value = "/{category}/total")
+    @GetMapping("/total/category/{category}")
     public BigDecimal getTotalByCategory(@PathVariable("category") String category) {
         return service.getTotalExpenseByCategory(category);
     }
