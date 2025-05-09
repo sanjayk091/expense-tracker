@@ -1,6 +1,5 @@
-package com.expense.tracker.Model;
+package com.expense.tracker.DTO;
 
-import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,13 +12,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @NoArgsConstructor
-@Entity
-@Table(name = "expenses")
-public class Expense {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+public class ExpenseRequestDTO {
     private String category;
     private BigDecimal amount;
     private LocalDate date;

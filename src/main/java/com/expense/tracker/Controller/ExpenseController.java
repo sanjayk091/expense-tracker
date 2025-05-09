@@ -1,6 +1,7 @@
 package com.expense.tracker.Controller;
 
-import com.expense.tracker.Model.Expense;
+import com.expense.tracker.DTO.ExpenseRequestDTO;
+import com.expense.tracker.DTO.ExpenseResponseDTO;
 import com.expense.tracker.Service.ExpenseService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,19 +20,19 @@ public class ExpenseController {
 
     @Operation(summary = "Create a new expense")
     @PostMapping
-    public Expense create(@RequestBody Expense expense) {
+    public ExpenseResponseDTO create(@RequestBody ExpenseRequestDTO expense) {
         return service.saveExpense(expense);
     }
 
     @Operation(summary = "Get all expenses")
     @GetMapping
-    public List<Expense> getAll() {
+    public List<ExpenseResponseDTO> getAll() {
         return service.getAllExpenses();
     }
 
     @Operation(summary = "Get all expenses by category")
     @GetMapping("/{category}")
-    public List<Expense> getByCategory(@PathVariable("category") String category) {
+    public List<ExpenseResponseDTO> getByCategory(@PathVariable("category") String category) {
         return service.getExpensesByCategory(category);
     }
 

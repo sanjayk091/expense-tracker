@@ -17,14 +17,14 @@ A simple RESTful API built with Spring Boot for tracking and managing personal e
 
 ## 📘 API Endpoints
 
-| Method | Endpoint                              | Description                                  |
-|--------|----------------------------------------|----------------------------------------------|
-| POST   | `/api/expenses`                        | Save a new expense                           |
-| GET    | `/api/expenses`                        | Get all expenses                             |
-| GET    | `/api/expenses/category/{category}`    | Get all expenses by category                 |
-| GET    | `/api/expenses/total`                  | Get total expense (all categories)           |
-| GET    | `/api/expenses/total/{category}`       | Get total expense for a specific category    |
-| DELETE | `/api/expenses/{id}`                   | Delete an expense by ID                      |
+| Method | Endpoint                      | Description                                  |
+|--------|-------------------------------|----------------------------------------------|
+| POST   | `/api/expenses`               | Save a new expense                           |
+| GET    | `/api/expenses`               | Get all expenses                             |
+| GET    | `/api/expenses/{category}`    | Get all expenses by category                 |
+| GET    | `/api/expenses/total`         | Get total expense (all categories)           |
+| GET    | `/api/expenses/{category}/total` | Get total expense for a specific category    |
+| DELETE | `/api/expenses/{id}`          | Delete an expense by ID                      |
 
 ---
 
