@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+<h1 class="title">💰 Expense Tracker – Track Your Expenses Effortlessly</h1>
+
+<div class="grid-container">
+    <!-- Left Column -->
+    <div class="column">
+        <!-- Add Expense -->
+        <div class="card">
+            <h3>Add Expense</h3>
+            <input id="category" placeholder="Category" />
+            <input id="amount" type="number" placeholder="Amount (₹)" />
+            <input id="date" type="date" />
+            <input id="desc" placeholder="Description" />
+            <button onclick="addExpense()">Add</button>
+        </div>
+
+        <!-- All Expenses -->
+        <div class="card">
+            <h3>All Expenses</h3>
+            <button onclick="getAll()">Refresh</button>
+            <div class="scrollable">
+                <table id="expenses">
+                    <thead>
+                    <tr><th>ID</th><th>Category</th><th>Amount</th><th>Description</th><th>Date</th><th>Delete</th></tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Column -->
+    <div class="column">
+        <!-- Filter by Category -->
+        <div class="card">
+            <h3>Filter by Category</h3>
+            <input id="filterCat" placeholder="Category" />
+            <button onclick="getByCategory()">Get</button>
+            <div id="catResult" class="scrollable"></div>
+        </div>
+
+        <!-- Totals -->
+        <div class="card">
+            <h3>Total Expense</h3>
+            <button onclick="getTotal()">Get Total</button>
+            <p id="total">₹ 0</p>
+            <hr />
+            <h3>Total by Category</h3>
+            <input id="totalCat" placeholder="Category" />
+            <button onclick="getTotalByCategory()">Get Total</button>
+            <p id="totalByCat">₹ 0</p>
+        </div>
+    </div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8" />-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>-->
+<!--    <title>Expense Tracker</title>-->
+<!--    <link rel="stylesheet" href="css/styles.css" />-->
+<!--</head>-->
+<!--<body>-->
+<!--<h2>Expense Tracker</h2>-->
+
+<!--&lt;!&ndash; Add Expense &ndash;&gt;-->
+<!--<div class="section">-->
+<!--    <h3>Add Expense</h3>-->
+<!--    <input id="category" placeholder="Category" required />-->
+<!--    <input id="amount" type="number" placeholder="Amount (₹)" required />-->
+<!--    <input id="date" type="date" required />-->
+<!--    <input id="desc" placeholder="Description" required />-->
+<!--    <button onclick="addExpense()">Add</button>-->
+<!--</div>-->
+
+<!--&lt;!&ndash; All Expenses &ndash;&gt;-->
+<!--<div class="section">-->
+<!--    <h3>All Expenses</h3>-->
+<!--    <button onclick="getAll()">Refresh</button>-->
+<!--    <table id="expenses">-->
+<!--        <thead>-->
+<!--        <tr><th>ID</th><th>Category</th><th>Amount</th><th>Description</th><th>Date</th><th>Delete</th></tr>-->
+<!--        </thead>-->
+<!--        <tbody></tbody>-->
+<!--    </table>-->
+<!--</div>-->
+
+<!--&lt;!&ndash; Filter by Category &ndash;&gt;-->
+<!--<div class="section">-->
+<!--    <h3>Filter by Category</h3>-->
+<!--    <input id="filterCat" placeholder="Category" />-->
+<!--    <button onclick="getByCategory()">Get</button>-->
+<!--    <div id="catResult"></div>-->
+<!--</div>-->
+
+<!--&lt;!&ndash; Total Expense &ndash;&gt;-->
+<!--<div class="section">-->
+<!--    <h3>Total Expense</h3>-->
+<!--    <button onclick="getTotal()">Get Total</button>-->
+<!--    <p id="total">₹ 0</p>-->
+<!--</div>-->
+
+<!--&lt;!&ndash; Total by Category &ndash;&gt;-->
+<!--<div class="section">-->
+<!--    <h3>Total by Category</h3>-->
+<!--    <input id="totalCat" placeholder="Category" />-->
+<!--    <button onclick="getTotalByCategory()">Get Total</button>-->
+<!--    <p id="totalByCat">₹ 0</p>-->
+<!--</div>-->
+
+<!--<script src="js/app.js"></script>-->
+<!--</body>-->
+<!--</html>-->
