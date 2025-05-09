@@ -1,11 +1,17 @@
 server:
   port: 8081
 
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
 spring:
   datasource:
-    url:
-    username:
-    password:
+    url: jdbc:postgresql://localhost:5432/expense_db
+    username: postgres
+    password: admin
     driver-class-name: org.postgresql.Driver
 
   jpa:
